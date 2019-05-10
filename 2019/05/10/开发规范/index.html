@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/xue/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/xue/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/xue/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/xue/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/xue/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/xue/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/xue/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="尝试过每个方法添加try 尝试过每个方法都返回flag 尝试过给每个方法添加装饰器 感觉是时候定一下规矩了…">
+<meta name="keywords" content="规矩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发规范">
+<meta property="og:url" content="http://7ht.gitee.io/xue/2019/05/10/开发规范/index.html">
+<meta property="og:site_name" content="Xue Note">
+<meta property="og:description" content="尝试过每个方法添加try 尝试过每个方法都返回flag 尝试过给每个方法添加装饰器 感觉是时候定一下规矩了…">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-10T08:26:34.425Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开发规范">
+<meta name="twitter:description" content="尝试过每个方法添加try 尝试过每个方法都返回flag 尝试过给每个方法添加装饰器 感觉是时候定一下规矩了…">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://7ht.gitee.io/xue/2019/05/10/开发规范/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>开发规范 | Xue Note</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/xue/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xue Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/xue/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/xue/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/xue/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/xue/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://7ht.gitee.io/xue/xue/2019/05/10/开发规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="x.mei">
+      <meta itemprop="description" content="一杆梅子酒 绿蚁慢饮酌">
+      <meta itemprop="image" content="/xue/images/xue.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xue Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">开发规范
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-10 14:02:43 / 修改时间：16:26:34" itemprop="dateCreated datePublished" datetime="2019-05-10T14:02:43+08:00">2019-05-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/xue/categories/开发/" itemprop="url" rel="index"><span itemprop="name">开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>尝试过每个方法添加try</p>
+<p>尝试过每个方法都返回flag</p>
+<p>尝试过给每个方法添加装饰器</p>
+<p>感觉是时候定一下规矩了…</p>
+<a id="more"></a>
+<h1 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h1><p>简单说一下之前做过的代码开发习惯尝试，看看是怎么对待异常和错误：</p>
+<p><strong>其实就是个对待错误的历史。</strong></p>
+<h2 id="刚开始"><a href="#刚开始" class="headerlink" title="刚开始"></a>刚开始</h2><p>就是每个函数/方法直接就返回结果，不怎么定义错误，在最后的主函数给来一个try-except，except到的error值就定义为错误返回。</p>
+<h2 id="入门后"><a href="#入门后" class="headerlink" title="入门后"></a>入门后</h2><p>感觉之前的写法不太好，就把每个函数都添加个错误返回<code>{&quot;result&quot;:&quot;ok/fail&quot;,&quot;data&quot;:&quot;xxxx&quot;}</code>，结果就是下一步处理会好繁琐，好累。。。</p>
+<h2 id="成长期"><a href="#成长期" class="headerlink" title="成长期"></a>成长期</h2><p>写代码写的比较多，老感觉代码写的不漂亮，怎么都觉得不规范，就想找一个又省劲又简单的方式。于是就想到正常的返回值仍然通过return返回，把错误值当作异常来看待（哈哈，except到的本来也是error），从大的方向上看就只需要处理两类值（所需值和非所需值）。然后就是把正常的错误定义为了一个所谓的安全异常（自定义安全异常），通过raise触发后，会被异常装饰器统一处理。这种方式最主要是定义了一个安全异常（错误）和能分类处理不同异常的装饰器。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自定义异常</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SafeException</span><span class="params">(Exception)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    自定义正常业务触发，不需要追踪</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, errorvalue)</span>:</span></span><br><span class="line">        self.value = errorvalue</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.value</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 追踪非接口函数-方法装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deco_catch_func_exception</span><span class="params">(func_desc=<span class="string">"内部方法"</span>)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">catch_exception</span><span class="params">(origin_func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            func_name = <span class="string">"未知函数"</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                func_name = origin_func.__name__  <span class="comment">#获取函数名</span></span><br><span class="line">                u = origin_func(*args, **kwargs)  <span class="comment">#执行装饰函数</span></span><br><span class="line">                <span class="keyword">return</span> u</span><br><span class="line">            <span class="keyword">except</span> SafeException <span class="keyword">as</span> e:      <span class="comment"># 自定义的正常异常</span></span><br><span class="line">                logger.info(e)</span><br><span class="line">                <span class="keyword">raise</span> SafeException(<span class="string">'&#123;&#125;'</span>.format(e)) </span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:          <span class="comment">#默认异常</span></span><br><span class="line">                traceback.print_exc()</span><br><span class="line">                logger.error(e)</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">'&#123;&#125;-&#123;&#125; 方法异常：&#123;&#125;'</span>.format(func_desc, func_name, e))</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> catch_exception</span><br><span class="line"></span><br><span class="line"><span class="comment"># 追踪接口函数-视图装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deco_catch_view_exception</span><span class="params">(func_desc=<span class="string">"外部接口"</span>)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">catch_exception</span><span class="params">(origin_func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            func_name = <span class="string">"未知函数"</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                func_name = origin_func.__name__ <span class="comment">#获取函数名</span></span><br><span class="line">                u = origin_func(*args, **kwargs) <span class="comment">#执行装饰函数</span></span><br><span class="line">                <span class="keyword">return</span> json.dumps(result_ok(u))</span><br><span class="line">            <span class="keyword">except</span> SafeException <span class="keyword">as</span> e:</span><br><span class="line">                logger.info(e)</span><br><span class="line">                <span class="keyword">return</span> json.dumps(result_fail(<span class="string">'&#123;&#125;'</span>.format(e)))</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                traceback.print_exc()</span><br><span class="line">                logger.error(e)</span><br><span class="line">                <span class="keyword">return</span> json.dumps(result_error(<span class="string">'&#123;&#125;-&#123;&#125; 接口异常：&#123;&#125;'</span>.format(func_desc, func_name, e)))</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line">    <span class="keyword">return</span> catch_exception</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 方法示例1</span></span><br><span class="line"><span class="comment"># 对应接口的实际执行函数</span></span><br><span class="line"><span class="meta">@deco_catch_view_exception("用户注册接口")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register_user</span><span class="params">(data)</span>:</span></span><br><span class="line">    res = User.create_user(data)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法示例2</span></span><br><span class="line"><span class="comment"># 对应内部运行函数</span></span><br><span class="line"><span class="meta">@deco_catch_func_exception("用户激活")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">active_user</span><span class="params">(cls, id, data)</span>:</span></span><br><span class="line">    logger.info(<span class="string">"接收到的参数：&#123;&#125;"</span>.format(data.get(<span class="string">"is_active"</span>)))</span><br><span class="line"></span><br><span class="line">    user = User.get_by_id(id)</span><br><span class="line">    <span class="comment"># todo 判断用户是否绑定工厂 和绑定工序</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> user.role:</span><br><span class="line">        <span class="keyword">raise</span> SafeException(<span class="string">"用户未绑定角色"</span>)</span><br><span class="line">    <span class="keyword">else</span>：</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"xxx"</span>  <span class="comment">#返回所需结果，字符串/列表/字典等</span></span><br></pre></td></tr></table></figure>
+<p><strong>这就是我用python的开发方式了，错误跟异常同飞，减轻了很多代码量</strong></p>
+<h1 id="现在"><a href="#现在" class="headerlink" title="现在"></a>现在</h1><p>最近看了GO的异常和错误处理方式方面的资料，有所触动，就想结合其中认同的方法，形成自己的开发规范。</p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><h3 id="没有失败的函数直接返回"><a href="#没有失败的函数直接返回" class="headerlink" title="没有失败的函数直接返回"></a>没有失败的函数直接返回</h3><h3 id="失败原因只有一个的，返回值类型为Bool"><a href="#失败原因只有一个的，返回值类型为Bool" class="headerlink" title="失败原因只有一个的，返回值类型为Bool"></a>失败原因只有一个的，返回值类型为Bool</h3><h3 id="需要返回错误的Error要放在返回值最后"><a href="#需要返回错误的Error要放在返回值最后" class="headerlink" title="需要返回错误的Error要放在返回值最后"></a>需要返回错误的Error要放在返回值最后</h3><h2 id="函数名命名规范"><a href="#函数名命名规范" class="headerlink" title="函数名命名规范"></a>函数名命名规范</h2><p>主要说一下分级的函数名</p>
+<h2 id="GO注意事项"><a href="#GO注意事项" class="headerlink" title="GO注意事项"></a>GO注意事项</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+    <div>
+        
+            
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span>开发规范</p>
+  <p><span>文章作者:</span>x.mei</p>
+  <p><span>发布时间:</span>2019年05月10日 - 14:02:43</p>
+  <p><span>最后更新:</span>2019年05月10日 - 16:26:34</p>
+  <p><span>原始链接:</span><a href="/xue/2019/05/10/开发规范/" title="开发规范">http://7ht.gitee.io/xue/2019/05/10/开发规范/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://7ht.gitee.io/xue/2019/05/10/开发规范/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+        
+    </div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/xue/tags/规矩/" rel="tag"># 规矩</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/xue/2019/05/10/6月规划/" rel="next" title="6月规划">
+                <i class="fa fa-chevron-left"></i> 6月规划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/xue/images/xue.jpg" alt="x.mei">
+            
+              <p class="site-author-name" itemprop="name">x.mei</p>
+              <div class="site-description motion-element" itemprop="description">一杆梅子酒 绿蚁慢饮酌</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/xue/archives">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/xue/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/xue/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yourname" title="GitHub &rarr; https://github.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#历史"><span class="nav-number">1.</span> <span class="nav-text">历史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#刚开始"><span class="nav-number">1.1.</span> <span class="nav-text">刚开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门后"><span class="nav-number">1.2.</span> <span class="nav-text">入门后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成长期"><span class="nav-number">1.3.</span> <span class="nav-text">成长期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#现在"><span class="nav-number">2.</span> <span class="nav-text">现在</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#规范"><span class="nav-number">2.1.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有失败的函数直接返回"><span class="nav-number">2.1.1.</span> <span class="nav-text">没有失败的函数直接返回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#失败原因只有一个的，返回值类型为Bool"><span class="nav-number">2.1.2.</span> <span class="nav-text">失败原因只有一个的，返回值类型为Bool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要返回错误的Error要放在返回值最后"><span class="nav-number">2.1.3.</span> <span class="nav-text">需要返回错误的Error要放在返回值最后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数名命名规范"><span class="nav-number">2.2.</span> <span class="nav-text">函数名命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GO注意事项"><span class="nav-number">2.3.</span> <span class="nav-text">GO注意事项</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hontu</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/xue/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/xue/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/xue/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/xue/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/xue/js/utils.js?v=7.1.1"></script>
+
+  <script src="/xue/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/xue/js/affix.js?v=7.1.1"></script>
+
+  <script src="/xue/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/xue/js/scrollspy.js?v=7.1.1"></script>
+<script src="/xue/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/xue/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/xue/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"display":{"position":"right"},"model":{"jsonPath":"/xue/live2dw/assets/tororo.model.json"},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":1,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
