@@ -96,19 +96,17 @@
 
 
 
-  <meta name="description" content="在学习go语言结构体struct的时候，突然发现结构体（其他语言里的class）其实是很简单的，在这里一块分享下，纪录下自己的一点浅薄的认识。">
+  <meta name="description" content="这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单的类">
-<meta property="og:url" content="http://qixiansheng.github.io/2019/05/08/简单的类/index.html">
+<meta property="og:title" content="管家小程序使用说明">
+<meta property="og:url" content="http://qixiansheng.github.io/2019/05/12/管家小程序使用说明/index.html">
 <meta property="og:site_name" content="Xue Note">
-<meta property="og:description" content="在学习go语言结构体struct的时候，突然发现结构体（其他语言里的class）其实是很简单的，在这里一块分享下，纪录下自己的一点浅薄的认识。">
+<meta property="og:description" content="这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://qixiansheng.github.io/2019/05/08/简单的类/1557303621239.png">
-<meta property="og:updated_time" content="2019-05-08T08:20:23.724Z">
+<meta property="og:updated_time" content="2019-05-12T11:24:36.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单的类">
-<meta name="twitter:description" content="在学习go语言结构体struct的时候，突然发现结构体（其他语言里的class）其实是很简单的，在这里一块分享下，纪录下自己的一点浅薄的认识。">
-<meta name="twitter:image" content="http://qixiansheng.github.io/2019/05/08/简单的类/1557303621239.png">
+<meta name="twitter:title" content="管家小程序使用说明">
+<meta name="twitter:description" content="这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://qixiansheng.github.io/2019/05/08/简单的类/">
+  <link rel="canonical" href="http://qixiansheng.github.io/2019/05/12/管家小程序使用说明/">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>简单的类 | Xue Note</title>
+  <title>管家小程序使用说明 | Xue Note</title>
   
 
 
@@ -332,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qixiansheng.github.io/2019/05/08/简单的类/">
+    <link itemprop="mainEntityOfPage" href="http://qixiansheng.github.io/2019/05/12/管家小程序使用说明/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="x.mei">
@@ -349,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">简单的类
+          <h1 class="post-title" itemprop="name headline">管家小程序使用说明
 
               
             
@@ -375,7 +373,7 @@
                 
               
 
-              <time title="创建时间：2019-05-08 14:44:22 / 修改时间：16:20:23" itemprop="dateCreated datePublished" datetime="2019-05-08T14:44:22+08:00">2019-05-08</time>
+              <time title="创建时间：2019-05-12 18:28:26 / 修改时间：19:24:36" itemprop="dateCreated datePublished" datetime="2019-05-12T18:28:26+08:00">2019-05-12</time>
             
 
             
@@ -385,24 +383,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/讲课/" itemprop="url" rel="index"><span itemprop="name">讲课</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -439,13 +419,20 @@
       
 
       
-        <p>在学习go语言结构体struct的时候，突然发现结构体（其他语言里的class）其实是很简单的，在这里一块分享下，纪录下自己的一点浅薄的认识。</p>
-<a id="more"></a>
-<p>这里主要讲一下类，参考go语言的类型 struct由此推理到python的class。</p>
-<h1 id="什么是结构体（类）"><a href="#什么是结构体（类）" class="headerlink" title="什么是结构体（类）"></a>什么是结构体（类）</h1><p>实际上类只是包含一堆属性，目的也是把一堆数据聚集在一起。结构体由一系列命名的元素组成，这些元素又被称为字段，每个字段都有一个名称和一个类型。当需要定义一个类型，它由一系列属性组成，每个属性都有自己的类型和值的时候，就适合用结构体。</p>
-<p><img src="1557303621239.png" alt="1557303621239"></p>
-<h1 id="什么是结构体的方法"><a href="#什么是结构体的方法" class="headerlink" title="什么是结构体的方法"></a>什么是结构体的方法</h1><p>然后我们看看类的方法，实际上就是一个普通方法，这个方法接受的第一个参数是类本身，<br>然后就出现了简写的形式</p>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="输入密码，查看文章。">
+    <label for="pass">输入密码，查看文章。</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
     </div>
 
@@ -464,12 +451,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><span>本文标题:</span>简单的类</p>
+  <p><span>本文标题:</span>管家小程序使用说明</p>
   <p><span>文章作者:</span>x.mei</p>
-  <p><span>发布时间:</span>2019年05月08日 - 14:44:22</p>
-  <p><span>最后更新:</span>2019年05月08日 - 16:20:23</p>
-  <p><span>原始链接:</span><a href="/2019/05/08/简单的类/" title="简单的类">http://qixiansheng.github.io/2019/05/08/简单的类/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://qixiansheng.github.io/2019/05/08/简单的类/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年05月12日 - 18:28:26</p>
+  <p><span>最后更新:</span>2019年05月12日 - 19:24:36</p>
+  <p><span>原始链接:</span><a href="/2019/05/12/管家小程序使用说明/" title="管家小程序使用说明">http://qixiansheng.github.io/2019/05/12/管家小程序使用说明/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://qixiansheng.github.io/2019/05/12/管家小程序使用说明/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -511,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/07/Go-pointer/" rel="next" title="数据分析">
-                <i class="fa fa-chevron-left"></i> 数据分析
+              <a href="/2019/05/12/Vue-Iview项目创建记录/" rel="next" title="前端项目创建记录">
+                <i class="fa fa-chevron-left"></i> 前端项目创建记录
               </a>
             
           </div>
@@ -520,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/08/个人经历/" rel="prev" title="个人经历">
-                个人经历 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,17 +550,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -693,23 +667,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是结构体（类）"><span class="nav-number">1.</span> <span class="nav-text">什么是结构体（类）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是结构体的方法"><span class="nav-number">2.</span> <span class="nav-text">什么是结构体的方法</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
